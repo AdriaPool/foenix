@@ -1,0 +1,47 @@
+<div class="container">
+<h2 class="header animate__animated animate__bounce" style="text-align: center">Edit Customer</h2>
+
+    <!-- Form Section -->
+    <div class="row mb-5">
+        <div class="col col-md-12">
+            <form [formGroup]="customerForm">
+                <div class="mb-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput id="firstName" formControlName="name">
+                    </mat-form-field>
+                </div>
+                <div class="mb-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <input matInput id="description" formControlName="description">
+                    </mat-form-field>
+                </div>
+
+                <!-- Image Section -->
+                <div class="row mb-3 justify-content-center text-center">
+                    <div class="col col-md-6">
+                        <label class="custom-file-upload">
+                            <input type="file" accept=".jpg, .png" formControlName="image" (change)="onSelectFile($event)" />
+                            <div class="upload">
+                            <mat-icon>add_photo_alternate</mat-icon>
+                            <span >Upload Image</span>
+                        </div>
+                        </label>
+                    </div>
+
+                    <div class="col col-md-6">
+                        <img [src]="url" height="100" width="100"> <br />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="float: right;">
+            <button style="margin-right: 10px;" type="button" mat-raised-button (click)="close()">Cancel</button>
+            <button  type="button" mat-raised-button color="primary" [disabled]="customerForm.invalid" (click)="save()">Save</button>
+    </div>
+
+</div>
+

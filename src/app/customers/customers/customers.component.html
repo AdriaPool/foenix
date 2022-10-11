@@ -1,0 +1,29 @@
+<h2 class="header animate__animated animate__bounce">Customers List</h2>
+<div class="container" style="width: 100%; height: 100%;">
+  <div class="card">
+    <mat-table #table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="color">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Color</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.color}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="noOfGroups">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> No Of Groups</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.noOfGroups}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="logo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Logo</mat-header-cell>
+        <mat-cell *matCellDef="let element"> <img class="logo" [src]="element.logo" /></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></mat-row>
+    </mat-table>
+  </div>
+</div>

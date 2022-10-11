@@ -1,0 +1,18 @@
+[
+  {
+      "id": "9f9fd2dc-d4b9-40fb-a02c-08da9b038421",
+      "name": "Audi",
+      "description": "Audi description",
+      "color": "FFFFF",
+      "noOfGroups": 2,
+      "logo": "./assets/images/logo1.png"
+  },
+  {
+      "id": "c21a7a89-1c38-46e3-54fc-08da9b066f14",
+      "name": "BMW",
+      "description": "BMW description",
+      "color": "FFFFF",
+      "noOfGroups": 0,
+      "logo": "./assets/images/logo2.png"
+  }
+]

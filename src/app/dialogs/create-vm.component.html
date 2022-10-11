@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>Create VM</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label> Name: </mat-label>
+      <input [(ngModel)]="name" type="text" matInput />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label> Cloud: </mat-label>
+      <mat-select [(ngModel)]="cloud">
+        <mat-option value="AWS"> AWS </mat-option>
+        <mat-option value="Azure"> Azure </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="cloud == 'AWS'">
+    <mat-radio-group [(ngModel)]="os">
+      <mat-label>OS:</mat-label>
+      <mat-radio-button value="ami-0a1ee2fb28fe05df3"
+        >Linux</mat-radio-button      >
+      <mat-radio-button value="ami-065deacbcaac64cf2">Ubuntu</mat-radio-button>
+      <mat-radio-button value="ami-0ab6c93b9ba89ec29">Windows</mat-radio-button>
+    </mat-radio-group>
+    <mat-radio-group [(ngModel)]="type">
+      <mat-label>Type:</mat-label>
+      <mat-radio-button value="t2.mini">T2.mini</mat-radio-button>
+      <mat-radio-button value="t2.micro">T2.micro</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="cloud == 'Azure'">
+    <mat-radio-group [(ngModel)]="os">
+      <mat-label>OS:</mat-label>
+      <mat-radio-button value="ami-0a1ee2fb28fe05df3"
+        >Linux</mat-radio-button      >
+      <mat-radio-button value="ami-065deacbcaac64cf2">Ubuntu</mat-radio-button>
+      <mat-radio-button value="ami-0ab6c93b9ba89ec29">Windows</mat-radio-button>
+    </mat-radio-group>
+    <mat-radio-group [(ngModel)]="type">
+      <mat-label>Type:</mat-label>
+      <mat-radio-button value="B2">B2</mat-radio-button>
+      <mat-radio-button value="B3">B3</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+
+
+
+
+
+
+  <div style="display: flex; justify-content: space-evenly">
+    <button mat-raised-button color="primary" (click)="createVm()">
+      Create
+    </button>
+    <button mat-raised-button color="warn" (click)="closeDialog()">
+      Cancel
+    </button>
+  </div>
+

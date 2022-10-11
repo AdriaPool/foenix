@@ -1,0 +1,41 @@
+<h2 class="header">Customers Detail with Groups</h2>
+
+<div class="container">
+    <div class="card">
+        <div class="card mb-1">
+            <div class="card-body info">
+                <div class="info">
+                    <img [src]="image">
+                    <div class="name">
+                        <span><b>Name: </b> {{ name }}</span><br />
+                        <span><b>Description: </b> {{ description }} </span>
+                    </div>
+                </div>
+
+                <div>
+                    <button mat-stroked-button color="primary">Scheduling</button><br />
+                    <button mat-stroked-button color="primary" class="mt-2 btn-edit" (click)="editCustomer()">Edit</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <mat-table #table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Group Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="noOfVms">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Number of VMs</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.noOfVms}}</mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></mat-row>
+                </mat-table>
+            </div>
+        </div>
+    </div>
+</div>

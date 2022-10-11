@@ -1,0 +1,62 @@
+ <button class="btn btn-primary" (click)="openDialog()">Create VM</button>
+ <!--<button class="btn btn-primary" (click)="openDialogForm()">Create VM Form</button>
+
+<button class="btn btn-primary" (click)="CreateWindowsAD()">Create Windows AD</button>
+
+
+
+<br><br>
+
+<mat-form-field appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selectedTemplate">
+    <mat-option *ngFor="let lC of templates"
+    [value]="lC.id">
+          {{lC.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+-->
+<h1 id="tableLabel">List of VM's</h1>
+
+<p *ngIf="!instances"><em><mat-spinner style="margin:0 auto;"
+  mode="indeterminate"></mat-spinner></em></p>
+
+<table class='table table-striped mat-elevation-z8'  aria-labelledby="tableLabel" *ngIf="instances">
+  <thead>
+    <tr>
+      <th style="width: 200px;">Cloud</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>IP address</th>
+      <th>State</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let instance of instances">
+      <td>{{ instance.cloud }}</td>
+      <td>{{ instance.name }}</td>
+      <td>{{ instance.type }}</td>
+      <td>{{ instance.ipAddress }}</td>
+      <td [ngStyle]="{'color': (instance.status === 'running') ? 'green' :
+      (instance.status === 'stopped') ? 'red' :
+      (instance.status === 'pending') ? 'darkgoldenrod' :
+      (instance.status === 'deallocating') ? 'darkgoldenrod' :
+      (instance.status === 'starting') ? 'darkgoldenrod' :
+      (instance.status === 'stopping') ? 'darkgoldenrod' :
+       ''}">{{ instance.status }}</td>
+
+        <td><button class="btn btn-primary" *ngIf="instance.status === 'stopped'" (click)="confirmStartVM(instance.vmId, instance.cloud, instance.name)" class="startButton">
+     Start</button>
+      <button class="btn btn-primary" *ngIf="instance.status === 'running'" (click)="confirmStopVM(instance.vmId, instance.cloud, instance.name)" class="stopButton">
+      Stop</button></td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+

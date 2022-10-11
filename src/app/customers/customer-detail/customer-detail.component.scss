@@ -1,0 +1,32 @@
+.header{
+    margin: 20px;
+    text-align: center;
+}
+
+img{
+    height: 70px;
+}
+
+.logo{
+    height: 30px;
+}
+
+.name{
+    margin-left: 20px;
+}
+
+.btn-edit{
+    width: -webkit-fill-available;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-row:hover {
+    background-color: #dbeaf5;
+    cursor: pointer;
+  }

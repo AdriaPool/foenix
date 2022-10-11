@@ -1,0 +1,16 @@
+[
+  {
+      "id": "456ccf0c-1b90-4940-7942-08da9badb7a1",
+      "name": "Audi Group",
+      "description": "Audi description",
+      "color": "FFFFF",
+      "noOfVms": 1
+  },
+  {
+      "id": "c2b8842c-1357-4905-50e3-08da9bb83c2e",
+      "name": "Another group",
+      "description": "Another description",
+      "color": "CCCCC",
+      "noOfVms": 0
+  }
+]
