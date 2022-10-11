@@ -25,7 +25,7 @@ public getAllCustomersTwo() {
   return this.http.get<Customer[]>(environment.baseUrl + 'api/Customer');
 }
 
-public getAllGroupsForCustomer(id: string) {
+public getAllGroupsForCustomer(id?: string) {
   return this.http.get<Group[]>(environment.baseUrl + 'api/Customer/' + id + '/' + 'groups');
 }
 

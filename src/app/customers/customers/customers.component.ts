@@ -27,7 +27,7 @@ export class CustomersComponent {
   displayedColumns: string[] = [];
   columnNames: ITableColumns[] = [];
 
-  constructor(private readonly customersService: CustomerService, private readonly router: Router) { }
+  constructor(private readonly customersService: CustomersService, private readonly router: Router) { }
 
   ngOnInit() {
     this.columnNames = [
@@ -38,7 +38,7 @@ export class CustomersComponent {
     ];
 
     this.displayedColumns = this.columnNames.map(column => column.id);
-    this.customersService.getAllCustomers().pipe(take(1)).subscribe((customersData: any) => {
+    this.customersService.getCustomers().pipe(take(1)).subscribe((customersData: any) => {
       console.log('customersData:123 ', customersData);
       const customersList: ICustomersList[] = customersData;
       const customersListTwo: Customer[] = customersData;
@@ -48,7 +48,7 @@ export class CustomersComponent {
   }
 
   onRowClick(row: ICustomersList) {
-    this.router.navigate(["/customers/customer-detail"], { queryParams: { id: row.id } });
+    this.router.navigate(["/customers/customer-detail"], { queryParams: { id: row.id, name: row.name, description: row.description } });
   }
 
 }
