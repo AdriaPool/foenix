@@ -1,0 +1,31 @@
+:host ::ng-deep{
+    .mat-form-field-flex{
+        width: 200% !important;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    margin-top: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: max-content;
+}
+
+.upload{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        color: darkorange;
+    }
+}

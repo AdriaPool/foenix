@@ -19,4 +19,8 @@ export class CustomersService {
     return this.http.get('../assets/customer-detail.json');
   }
 
+  getGroupDetail() {
+    return this.http.get('../assets/group-detail.json');
+  }
+
 }

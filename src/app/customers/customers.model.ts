@@ -18,5 +18,22 @@ export interface ICustomerDetail {
     id: string;
     name: string;
     noOfVms: number;
-    image: string;
+    image?: string;
+}
+
+export interface IGroupDetailList {
+    id: string;
+    vmCloudId: string;
+    vmName: string;
+    cludName: string;
+    status: string;
+    ip: string;
+    startPos: number;
+    stopPos: number;
+}
+
+export interface IGroupDetail {
+    description: string;
+    id: string;
+    name: string;
 }

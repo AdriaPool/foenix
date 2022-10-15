@@ -6,9 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { EditCustomerDetailComponent } from '../edit-customer-detail/edit-customer-detail.component';
 import { CustomersService } from '../customers.service';
-import { ICustomerDetail, ICustomersList, ITableColumns } from '../customers.model';
 import { slideInOutAnimation } from 'src/app/animation';
-import { CustomerService } from 'src/app/services/customer.service';
+import { ICustomerDetail, ITableColumns } from '../customers.model';
 
 @Component({
   selector: 'customer-detail',
@@ -23,6 +22,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class CustomerDetailComponent {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource!: MatTableDataSource<ICustomerDetail>;
+  id: string = '';
   name: string = '';
   description: string = '';
   image: string = '';
@@ -38,6 +38,7 @@ export class CustomerDetailComponent {
   }
 
   ngOnInit() {
+    this.id = this.route.snapshot.queryParams['id'];
     this.name = this.route.snapshot.queryParams['name'];
     this.description = this.route.snapshot.queryParams['description'];
     this.image = './assets/images/logo1.png';
@@ -55,10 +56,6 @@ export class CustomerDetailComponent {
 
   }
 
-  onRowClick(row: ICustomersList) {
-    // this.router.navigate(["/customers/customer-detail"], { queryParams: { id: row.id } });
-  }
-
   editCustomer() {
     this.dialog.open(EditCustomerDetailComponent, { height: '75%', width: '500px',
       data: { name: this.name, description: this.description, image: this.image },
@@ -71,6 +68,10 @@ export class CustomerDetailComponent {
         this.image = updatedCustomerDetail.image;
       }
     });
+  }
+
+  onRowClick(row: ICustomerDetail) {
+    this.router.navigate(["/customers/group-detail"], { queryParams: { id: this.id, name: row.name, description: row.description } });
   }
 
 }

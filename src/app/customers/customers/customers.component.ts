@@ -50,7 +50,7 @@ export class CustomersComponent {
   onRowClick(row: ICustomersList) {
     this.router.navigate(["/customers/customer-detail"], { queryParams: { id: row.id, name: row.name, description: row.description } });
   }
-
+c
 }
 
 

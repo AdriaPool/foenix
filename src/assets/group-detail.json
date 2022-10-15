@@ -1,0 +1,22 @@
+[
+{
+"id": "9f9fd2dc-d4b9-40fb-a02c-08da9b038421",
+"vmCloudId": "i-a34va343fb",
+"vmName": "VM1",
+"cludName": "Azure",
+"status": "running",
+"ip": "192.168.1.0",
+"startPos": 1,
+"stopPos": 3
+},
+{
+"id": "c21a7a89-1c38-46e3-54fc-08da9b066f14",
+"vmCloudId": "i-b17va343fb",
+"vmName": "VM2",
+"cludName": "Aws",
+"status": "stopped",
+"ip": "192.168.16.0",
+"startPos": 3,
+"stopPos": 2
+}
+]

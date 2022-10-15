@@ -1,0 +1,31 @@
+<div class="container">
+<h2 class="header animate__animated animate__bounce" style="text-align: center">Edit Group</h2>
+
+    <!-- Form Section -->
+    <div class="row mb-5">
+        <div class="col col-md-12">
+            <form [formGroup]="groupForm">
+                <div class="mb-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput id="firstName" formControlName="name">
+                    </mat-form-field>
+                </div>
+                <div class="mb-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <input matInput id="description" formControlName="description">
+                    </mat-form-field>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div style="float: right;">
+            <button style="margin-right: 10px;" type="button" mat-raised-button (click)="close()">Cancel</button>
+            <button type="button" mat-raised-button color="primary" [disabled]="groupForm.invalid" (click)="save()">Save</button>
+    </div>
+
+</div>
+

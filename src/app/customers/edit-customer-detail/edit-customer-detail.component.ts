@@ -55,7 +55,7 @@ export class EditCustomerDetailComponent {
       }else{
         this.dialogRef.close();
       }
-    }, 1000);
+    }, 500);
   }
 
 }
