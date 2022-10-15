@@ -1,60 +1,63 @@
-<h2 class="header">Group Detail</h2>
+<div style="margin-top: 55px">
+    <h2 class="header">Group Detail</h2>
 
-<div class="container">
-    <div class="card">
-        <div class="card mb-1">
-            <div class="card-body info">
-                <div class="info">
-                    <div class="name">
-                        <span><b>Name: </b> {{ name }}</span><br />
-                        <span><b>Description: </b> {{ description }} </span>
-                    </div>
-                </div>
-
-                <div>
-                    <button mat-stroked-button color="primary">Start</button><br/>
-                    <button mat-stroked-button color="primary" class="mt-1">Stop</button><br/>
-                    <button mat-stroked-button color="primary" class="mt-1 btn-edit" (click)="editGroup()">Edit</button>
-                </div>
-
-            </div>
-        </div>
+    <div class="container">
         <div class="card">
-            <div class="card-body">
-                <mat-table #table [dataSource]="dataSource" matSort>
-                    <ng-container matColumnDef="vmName">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> VM Name</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.vmName}}</mat-cell>
-                    </ng-container>
+            <div class="card mb-1">
+                <div class="card-body info">
+                    <div class="info">
+                        <div class="name">
+                            <span><b>Name: </b> {{ name }}</span><br />
+                            <span><b>Description: </b> {{ description }} </span>
+                        </div>
+                    </div>
 
-                    <ng-container matColumnDef="status">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> Status</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.status}}</mat-cell>
-                    </ng-container>
+                    <div>
+                        <button mat-stroked-button color="primary">Start</button><br />
+                        <button mat-stroked-button color="primary" class="mt-1">Stop</button><br />
+                        <button mat-stroked-button color="primary" class="mt-1 btn-edit"
+                            (click)="editGroup()">Edit</button>
+                    </div>
 
-                    <ng-container matColumnDef="cludName">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> Cloud Name</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.cludName}}</mat-cell>
-                    </ng-container>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <mat-table #table [dataSource]="dataSource" matSort>
+                        <ng-container matColumnDef="vmName">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> VM Name</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.vmName}}</mat-cell>
+                        </ng-container>
 
-                    <ng-container matColumnDef="ip">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> IP</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.ip}}</mat-cell>
-                    </ng-container>
+                        <ng-container matColumnDef="status">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Status</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.status}}</mat-cell>
+                        </ng-container>
 
-                    <ng-container matColumnDef="startPos">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> Start Pos</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.startPos}}</mat-cell>
-                    </ng-container>
+                        <ng-container matColumnDef="cludName">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Cloud Name</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.cludName}}</mat-cell>
+                        </ng-container>
 
-                    <ng-container matColumnDef="stopPos">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> Stop Pos</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.stopPos}}</mat-cell>
-                    </ng-container>
+                        <ng-container matColumnDef="ip">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> IP</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.ip}}</mat-cell>
+                        </ng-container>
 
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></mat-row>
-                </mat-table>
+                        <ng-container matColumnDef="startPos">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Start Pos</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.startPos}}</mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="stopPos">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Stop Pos</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.stopPos}}</mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></mat-row>
+                    </mat-table>
+                </div>
             </div>
         </div>
     </div>
